@@ -1,0 +1,13 @@
+8e4d3b1e7f47 redis 6.0.4-alpine3.11
+29c713657d31 redis 6.0.3-alpine3.11
+b4ceee5c3fa3 redis 6.0.2-alpine3.11
+360360313017 redis 6.0.1-alpine3.11
+7277f03c430e redis 6.0.0-alpine3.11
+e3dd0e49bca5 redis 4.0.14-alpine3.11
+3661c84ee9d0 redis 5.0.9-alpine3.11
+a638659286df redis 6.0-rc4-alpine3.11
+f10d3d1e2d79 redis 6.0-rc3-alpine3.11
+5c5637d8a823 redis 5.0.8-alpine3.11
+b1d3dc64bdd7 redis 6.0-rc2-alpine3.11
+b68707e68547 redis 5.0.7-alpine3.11
+6e78e36b1088 redis 6.0-rc1-alpine3.11

@@ -1,0 +1,10 @@
+59ccfbf6e75b tensorflow/tensorflow 2.1.1-jupyter
+b9519afc4d58 tensorflow/tensorflow 2.2.0-jupyter
+b78d1c6a1c4e tensorflow/tensorflow 2.0.1-jupyter
+3973570918d7 tensorflow/tensorflow 1.15.2-jupyter
+6a5f36b50a14 tensorflow/tensorflow 2.1.0-jupyter
+c19fdfdddd6a tensorflow/tensorflow 1.15.0-jupyter
+5383ff02d785 tensorflow/tensorflow 2.0.0-jupyter
+2f2655884274 tensorflow/tensorflow 1.13.2-jupyter
+05d721256e77 tensorflow/tensorflow 1.14.0-jupyter
+9371b009290a tensorflow/tensorflow 1.13.1-jupyter

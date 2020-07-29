@@ -1,0 +1,17 @@
+387f9d021d3a tomcat 9.0.20-jre8-alpine
+9191e62dc146 tomcat 9.0.19-jre8-alpine
+6c7bc25e2848 tomcat 9.0.17-jre8-alpine
+21fd599439b8 tomcat 9.0.16-jre8-alpine
+765c7b85644b tomcat 9.0.14-jre8-alpine
+36a4846afdf4 tomcat 9.0.13-jre8-alpine
+ef8053e4a776 tomcat 9.0.12-jre8-alpine
+babeede91182 tomcat 9.0.11-jre8-alpine
+9843d9c11538 tomcat 9.0.10-jre8-alpine
+9091c18fc646 tomcat 9.0.8-jre8-alpine
+8ca7d2e283d0 tomcat 9.0.7-jre8-alpine
+c06626b02d14 tomcat 9.0.6-jre8-alpine
+269e9164306c tomcat 9.0.5-jre8-alpine
+631138bc037d tomcat 9.0.4-jre8-alpine
+2dec8a74ee67 tomcat 9.0.2-jre8-alpine
+316b498ce96a tomcat 9.0.1-jre8-alpine
+986c9171cb7a tomcat 9.0.0-jre8-alpine

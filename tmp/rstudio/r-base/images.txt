@@ -1,0 +1,9 @@
+192a9a70b69f rstudio/r-base 3.6.3-bionic
+818995770b34 rstudio/r-base 3.5.3-bionic
+54ce0adc6564 rstudio/r-base 3.4.4-bionic
+674d9e300f52 rstudio/r-base 3.3.3-bionic
+506f235a3970 rstudio/r-base 3.2.5-bionic
+e5a5a663bac9 rstudio/r-base 3.1.3-bionic
+f64b23678bf0 rstudio/r-base 3.6.2-bionic
+b7b117ac5c91 rstudio/r-base 3.6.1-bionic
+e61f7f467a99 rstudio/r-base 3.6.0-bionic

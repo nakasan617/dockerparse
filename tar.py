@@ -1,6 +1,6 @@
 import os
 import sys
-#from myshutil import copytree
+import shutil
 
 def cp_layer(src, destbase):
     tmp = src[:src.rfind("/")]
@@ -14,8 +14,13 @@ def cp_layer(src, destbase):
     if src.rfind("\n") != -1:
         src = src[:src.rfind("\n")]
     order = "cp -r " + src + " " + dest
+    print("this is destination")
+    print(dest)
     os.system("mkdir -p " + dest)
     os.system(order) 
+    os.system("tar -cvf " + dest + ".tar " + dest)
+    shutil.rmtree(dest)
+   
     
 def parse_layers(input_, destbase):
     count = 0
@@ -26,14 +31,19 @@ def parse_layers(input_, destbase):
         index = input_.find(":")
         cp_layer(src, destbase)
     src = input_
+    print(destbase)
     cp_layer(src, destbase)
 
 def make_image_dir(imagename):
     os.system("mkdir -p " + imagename)
 
-def parse_images(filename):
+def parse_images(filename, limit):
+    count = 0
     with open(filename, 'r') as f:
         for line in f:
+            if limit <= count:
+                break
+            print(line)
             words = line.split() 
             id_ = words[0]
             image = words[1]
@@ -45,20 +55,33 @@ def parse_images(filename):
             
             result = os.popen(order).read()
             parse_layers(result, currdir)
-            os.system("tar -cvf" + currdir + ".tar " + currdir)
+            count += 1
+            #os.system("tar -cvf" + currdir + ".tar " + currdir)
 
 def pull_images(imagename, wd):
     os.system("cd " + wd)
     os.system("docker pull " + imagename + " --all-tags")    
     os.system("mkdir -p tmp")
-    imagefile = "tmp/images.txt"
+    imagefile = "tmp/" + sys.argv[1] + "/images.txt"
+    os.system("docker images --format \"{{.ID}} {{.Repository}} {{.Tag}}\" > " + imagefile)
+
+def mktmp():
+    imagefile = "tmp/" + sys.argv[1] + "/images.txt"
     os.system("docker images --format \"{{.ID}} {{.Repository}} {{.Tag}}\" > " + imagefile)
 
 def main():
-    assert len(sys.argv) == 3
-    # pull_images(sys.argv[1], sys.argv[2])
-    imagefile = "tmp/images.txt"
-    parse_images(imagefile)
+    if len(sys.argv) > 1:
+        imagefile = "tmp/" + sys.argv[1]+ "/images.txt"
+    if len(sys.argv) == 3:
+        limit = int(sys.argv[2]) 
+    else:
+        limit = float('inf')
+    if len(sys.argv) > 3:
+        assert False
+        
+    #pull_images(sys.argv[1], sys.argv[2])
+    mktmp()
+    parse_images(imagefile, limit)
 
 if __name__ == "__main__":
     main()
