@@ -1,10 +1,13 @@
 import os
 import sys
 import shutil
+import subprocess
+import io 
 
 def cp_layer(src, destbase):
     tmp = src[:src.rfind("/")]
     if src[src.rfind("/"):] != "/diff" and src[src.rfind("/"):] != "/diff\n":
+        print("could not find the src")
         print("%r"%src[src.rfind("/"):])
         assert False
     tmp = tmp[tmp.rfind("/"):]
@@ -20,7 +23,6 @@ def cp_layer(src, destbase):
     os.system(order) 
     os.system("tar -cvf " + dest + ".tar " + dest)
     shutil.rmtree(dest)
-   
     
 def parse_layers(input_, destbase):
     count = 0
@@ -67,7 +69,18 @@ def pull_images(imagename, wd):
 
 def mktmp():
     imagefile = "tmp/" + sys.argv[1] + "/images.txt"
-    os.system("docker images --format \"{{.ID}} {{.Repository}} {{.Tag}}\" > " + imagefile)
+    # os.system("docker images --format \"{{.ID}} {{.Repository}} {{.Tag}}\" > " + imagefile)
+    result = subprocess.run(['docker', 'images', '--format', '{{.ID}} {{.Repository}} {{.Tag}}'], stdout=subprocess.PIPE)
+    msg = result.stdout.decode('ascii')
+    buf = io.StringIO(msg)
+    with open(imagefile, 'w') as f:
+        while True:
+            line = buf.readline()
+            if len(line) == 0:
+                break
+            if line.split()[1] == sys.argv[1]:
+                # print(line)
+                f.write(line)
 
 def main():
     if len(sys.argv) > 1:
